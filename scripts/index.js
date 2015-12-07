@@ -4,11 +4,10 @@ $( document ).ready(function() {
 	var percent = 0.05;
 	var header = $('#banner');
 	var title = $('#title');
-
 	// scroll functionality
 	$(window).scroll(function(){
-    var scrollTop = $(this).scrollTop();
-    var height = $(document).height();
+    		var scrollTop = $(this).scrollTop();
+    		var height = $(document).height();
 
     var calc = 1 - (5*scrollTop/height);
 
