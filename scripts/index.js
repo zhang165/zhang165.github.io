@@ -9,8 +9,6 @@ $( document ).ready(function() {
 	$(window).scroll(function(){
     var scrollTop = $(this).scrollTop();
     var height = $(document).height();
-    
-    console.log(5*scrollTop/height);
 
     var calc = 1 - (5*scrollTop/height);
 
