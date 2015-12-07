@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+    $(".fancybox").fancybox();
+
 	// scroll functionality
 	var percent = 0.05;
 	var header = $('#banner');
