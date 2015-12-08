@@ -165,7 +165,7 @@ i{
 
 #footer{
 	position: relative;
-	z-index: 99;
+	z-index: 5;
 	background: #FFFFFF;
 	font: 1em/1.5em 'Voltaire';
 	font-size: 16px;
