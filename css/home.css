@@ -5,6 +5,13 @@ body {
 	background-image: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(255,255,255,.5) 8px, rgba(255,255,255,.5) 10px);
 }
 
+h2{
+	font: 1em/1.5em 'Cuprum';
+	font-size: 25px;
+	font-size: 1.4vw;
+	color: black;
+}
+
 .wrapper{
 	position:relative;
 	margin: 0 auto;
@@ -64,9 +71,11 @@ body {
 	
 	#banner { 
 		width: 100%;
+		margin: 0;
 	}
 
 	#text{
+		top: 0;
 		position: relative;
 		font:normal 16px Arial, Helvetica, sans-serif;
 		color: #616161;
@@ -155,6 +164,9 @@ i{
 }
 
 #footer{
+	position: relative;
+	z-index: 99;
+	background: #FFFFFF;
 	font: 1em/1.5em 'Voltaire';
 	font-size: 16px;
 	color: black;
