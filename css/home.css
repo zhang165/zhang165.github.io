@@ -6,11 +6,10 @@ body {
 }
 
 .wrapper{
-	overflow: hidden;
 	position:relative;
 	margin: 0 auto;
 	width: 65%;
-	height: 2500px;
+	min-height: 2100px;
 	background:#FFFFFF;
 	box-shadow: 0px 0px 15px #bdbdbd;	
 }

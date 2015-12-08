@@ -1,12 +1,12 @@
 $( document ).ready(function() {
     // activates fancy box
-    $(".fancybox").fancybox();
+    $(".fancybox").fancybox({helpers : { overlay : { locked : false } }});
 
-	// scroll functionality
 	var percent = 0.05;
 	var header = $('#banner');
 	var title = $('#title');
 
+    // stolen scroll functionality
      $.fn.moveIt = function(){
         var $window = $(window);
         var instances = [];
@@ -18,7 +18,7 @@ $( document ).ready(function() {
         var scrollTop = $window.scrollTop();
         var height = $(document).height();
 
-        var calc = 1 - (5*scrollTop/height);
+        var calc = 1 - (3*scrollTop/height);
         if(calc +0.4 < percent){
             title.addClass('smaller');
         }else if(calc >= percent){
@@ -51,11 +51,7 @@ $( document ).ready(function() {
         $('[data-scroll-speed]').moveIt();
     });
 	
-	$(window).scroll(function(){
-  
-
-    }); 
-
+	
    
 
 });
