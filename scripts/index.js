@@ -76,6 +76,6 @@ var updateHeight = function(){
     // });
 
     // Set the container height
-    $(".wrapper").height($(".content").outerHeight() + $("#title").outerHeight()*4 + $("#navigation").outerHeight()*4);
+    $(".wrapper").height($(".content").outerHeight()*2);
 }
 
