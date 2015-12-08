@@ -9,7 +9,6 @@ body {
 	position:relative;
 	margin: 0 auto;
 	width: 65%;
-	min-height: 2100px;
 	background:#FFFFFF;
 	box-shadow: 0px 0px 15px #bdbdbd;	
 }
@@ -59,6 +58,7 @@ body {
 }
 
 .content{
+	display: none;
 	width: 100%;   
 }
 	

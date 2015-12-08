@@ -1,4 +1,16 @@
-$( document ).ready(function() {
+$(window).load(function() {
+    $(".content").fadeIn('slow');
+    updateHeight();
+});
+
+$(window).resize(function(){
+    updateHeight();
+});
+
+$(document).ready(function() {
+    // sets height of wrapper to fixed divs
+    updateHeight();
+
     // activates fancy box
     $(".fancybox").fancybox({helpers : { overlay : { locked : false } }});
 
@@ -50,9 +62,20 @@ $( document ).ready(function() {
     $(function(){
         $('[data-scroll-speed]').moveIt();
     });
-	
-	
-   
-
 });
+
+var updateHeight = function(){
+    // TODO: fix height calculations
+
+    // Loop through elements children to find & set the biggest height
+    // $(".wrapper div").each(function(){
+    // // If this elements height is bigger than the biggestHeight
+    //     console.log($(this));
+    //     console.log($(this).height());
+    //     biggestHeight += $(this).height();
+    // });
+
+    // Set the container height
+    $(".wrapper").height($(".content").outerHeight() + $("#title").outerHeight()*4 + $("#navigation").outerHeight()*4);
+}
 
