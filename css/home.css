@@ -10,7 +10,7 @@ body {
 	position:relative;
 	margin: 0 auto;
 	width: 65%;
-	height: 4000px;
+	height: 2500px;
 	background:#FFFFFF;
 	box-shadow: 0px 0px 15px #bdbdbd;	
 }
@@ -39,8 +39,10 @@ body {
 }
 
 #title{
+	position: relative;
 	font: 1em/1.5em 'Cuprum';
 	color: black;
+	background-color: #FFFFFF;
 	font-size: 50px;
 	font-size: 2.7vw;
 	display: flex;
@@ -54,12 +56,11 @@ body {
 	-moz-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	-ms-transition: all 0.3s ease;
-	z-index: 999;
+	z-index: 10;
 }
 
 .content{
 	width: 100%;   
-	z-index: -999;
 }
 	
 	#banner { 
@@ -67,9 +68,10 @@ body {
 	}
 
 	#text{
+		position: relative;
 		font:normal 16px Arial, Helvetica, sans-serif;
 		color: #616161;
-		background:#f5f5f5;
+		background-color: #f5f5f5;
 		padding: 30px;
 	}
 
@@ -86,8 +88,10 @@ body {
 }
 
 #navigation{
+	position: relative;
 	background: #FFFFFF;
 	font: 1em/1.5em 'Voltaire';
+	background-color: #FFFFFF;
 	font-size: 16px;
 	font-size: 0.9vw;
 	display: flex;
@@ -101,6 +105,7 @@ body {
 	-moz-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	-ms-transition: all 0.3s ease;
+	z-index: 10;
 }
 
 #navigation:hover{
