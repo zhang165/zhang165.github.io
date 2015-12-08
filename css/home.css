@@ -58,29 +58,24 @@ body {
 }
 
 #content{
-	top: 0;
-	left: 0;
-	overflow: hidden;
-	position: relative;
-	width: inherit;
-	margin: 0 auto;
+	
 }
+	
+	#banner { 
+		overflow: hidden;
+		position: fixed;
+		width: 100%;
+	}
 
-#text{
-	font:normal 16px Arial, Helvetica, sans-serif;
-	color: #616161;
-	background:#f5f5f5;
-	display: block;
-	padding: 50px;
-	width: 100%;
-	align-items: center; 
-}
 
-#banner { 
-	position: fixed;
-	width: inherit;
-	z-index: 10;
-}
+	#text{
+		font:normal 16px Arial, Helvetica, sans-serif;
+		color: #616161;
+		background:#f5f5f5;
+		
+	}
+
+
 
 #title.smaller{
 	font-size: 25px;
