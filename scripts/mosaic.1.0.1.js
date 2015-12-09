@@ -8,15 +8,13 @@
 */
 
 (function($){
-
     if(!$.omr){
         $.omr = new Object();
     };
-    
+   
     $.omr.mosaic = function(el, options){
     
-        var base = this;
-        
+        var base = this;       
         // Access to jQuery and DOM versions of element
         base.$el = $(el);
         base.el = el;
@@ -26,7 +24,6 @@
         
         base.init = function(){
             base.options = $.extend({},$.omr.mosaic.defaultOptions, options);
-            
             base.load_box();
         };
         
@@ -92,7 +89,6 @@
 			      	break;
 			};
         };
-        
         // Make it go!
         base.init();
     };

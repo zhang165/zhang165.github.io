@@ -3,7 +3,7 @@ div.mosaic-block {
 	position:relative;
 	overflow: hidden;
 	width: 30%;
-	height: 190px;
+	height: 20%;
 	margin:1.3%;
 	border: 2px solid white;
 }
@@ -15,25 +15,22 @@ div.details * {
 	outline:none;
 }
 
-.details{ margin:15px 20px; }	
+.details{ margin:1.5% 2%; }	
 
 .details h4{ font:300 16px 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height:160%; letter-spacing:0.15em; color:#fff; text-shadow:1px 1px 0 rgb(0,0,0); }
 .details p{ font:300 12px 'Lucida Grande', Tahoma, Verdana, sans-serif; color:#aaa; text-shadow:1px 1px 0 rgb(0,0,0);}
 a{ text-decoration:none; }
 
 	.mosaic-backdrop {
-		position:absolute;
-		top:0;
-		right: 0;
-		height: 190px;
-		width: inherit;
-		background:#111;
+		height: 100%;
+		width: 100%;
 	}
 
-	img.mosaic-backdrop {
-		height: 190px;
-		width: inherit;
-		background:#111;
+	.mosaic-backdrop img{
+		bottom: 0;
+		position: relative;
+		width: 100%;
+		height: 100%;
 	}
 	
 	.mosaic-overlay {
@@ -44,11 +41,10 @@ a{ text-decoration:none; }
 		height:100%;
 		background:#111;
 	}
-	
-		
+			
 		.bar .mosaic-overlay {
-			bottom:-100px;
-			height:100px;
+			bottom:-45%;
+			height:45%;
 			background:url(../images/bg-black.png);
 		}
 		
