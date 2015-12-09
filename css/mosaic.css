@@ -24,7 +24,14 @@ a{ text-decoration:none; }
 	.mosaic-backdrop {
 		position:absolute;
 		top:0;
-		height: inherit;
+		right: 0;
+		height: 190px;
+		width: inherit;
+		background:#111;
+	}
+
+	img.mosaic-backdrop {
+		height: 190px;
 		width: inherit;
 		background:#111;
 	}
