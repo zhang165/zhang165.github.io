@@ -1,9 +1,9 @@
 div.mosaic-block {
 	display: inline-block;
 	position:relative;
-	overflow:hidden;
-	width: 350px;
-	height:190px;
+	overflow: hidden;
+	width: 30%;
+	height: 190px;
 	margin:1.3%;
 	border: 2px solid white;
 }
@@ -24,8 +24,8 @@ a{ text-decoration:none; }
 	.mosaic-backdrop {
 		position:absolute;
 		top:0;
-		height:100%;
-		width:100%;
+		height: inherit;
+		width: inherit;
 		background:#111;
 	}
 	
