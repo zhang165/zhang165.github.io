@@ -1,4 +1,5 @@
 $(window).load(function() {
+    // fade in page transitions
     $(".content").fadeIn('slow');
     updateHeight();
 });
@@ -11,8 +12,21 @@ $(document).ready(function() {
     // sets height of wrapper to fixed divs
     updateHeight();
 
+    $("#navigation li a").on({
+        mouseenter: function(){
+            $(this).children().addClass('fa-2x');
+        },
+        mouseleave: function(){
+            $(this).children().removeClass('fa-2x');
+        }
+    });
+
     // activates fancy box
-    $(".fancybox").fancybox({helpers : { overlay : { locked : false } }});
+    $(".fancybox").fancybox({
+        helpers:{ 
+            overlay:{ locked : false },
+        }
+    });
 
 	var percent = 0.05;
 	var header = $('#banner');
