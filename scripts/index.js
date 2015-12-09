@@ -28,7 +28,7 @@ $(document).ready(function() {
         }
     });
 
-	var percent = 0.05;
+	var percent = 0.25;
 	var header = $('#banner');
 	var title = $('#title');
 
@@ -90,6 +90,6 @@ var updateHeight = function(){
     // });
 
     // Set the container height
-    $(".wrapper").height(2250);
+    $(".wrapper").height(1850);
 }
 
