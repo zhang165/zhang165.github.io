@@ -44,6 +44,7 @@ h2{
 }
 
 #title{
+	text-align: center;
 	position: relative;
 	font: 1em/1.5em 'Cuprum';
 	color: black;
@@ -96,6 +97,7 @@ h2{
 }
 
 #navigation{
+	text-align: center;
 	position: relative;
 	background: #FFFFFF;
 	font: 1em/1.5em 'Voltaire';
@@ -146,6 +148,7 @@ a:hover {
 }
 
 img {
+	border: 0;
     max-width: 100%;
     max-height: 100%;
     width: 100%;
