@@ -1,0 +1,48 @@
+div.mosaic-block {
+	display: inline-block;
+	position:relative;
+	overflow:hidden;
+	width: 350px;
+	height:190px;
+	margin:1.3%;
+	border: 2px solid white;
+}
+
+div.details * {
+	margin:0;
+	padding:0;
+	border:none;
+	outline:none;
+}
+
+.details{ margin:15px 20px; }	
+
+.details h4{ font:300 16px 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height:160%; letter-spacing:0.15em; color:#fff; text-shadow:1px 1px 0 rgb(0,0,0); }
+.details p{ font:300 12px 'Lucida Grande', Tahoma, Verdana, sans-serif; color:#aaa; text-shadow:1px 1px 0 rgb(0,0,0);}
+a{ text-decoration:none; }
+
+	.mosaic-backdrop {
+		position:absolute;
+		top:0;
+		height:100%;
+		width:100%;
+		background:#111;
+	}
+	
+	.mosaic-overlay {
+		display:none;
+		z-index:5;
+		position:absolute;
+		width:100%;
+		height:100%;
+		background:#111;
+	}
+	
+		
+		.bar .mosaic-overlay {
+			bottom:-100px;
+			height:100px;
+			background:url(../images/bg-black.png);
+		}
+		
+		

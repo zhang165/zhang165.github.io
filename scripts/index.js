@@ -12,6 +12,12 @@ $(document).ready(function() {
     // sets height of wrapper to fixed divs
     updateHeight();
 
+    // activate mosaic
+    $('.bar').mosaic({
+         animation   :   'slide'
+    });
+
+    // navigation icon enlargements
     $("#navigation li a").on({
         mouseenter: function(){
             $(this).children().addClass('fa-2x');
@@ -63,6 +69,7 @@ $(document).ready(function() {
             });
             }
         }
+        
     var moveItItem = function(el){
         this.el = $(el);
         this.speed = parseInt(this.el.attr('data-scroll-speed'));
