@@ -13,8 +13,8 @@ $(document).ready(function() {
     if(mobilecheck()){
         // we're on mobile
         $(".wrapper").css({'width': '100%'});
-        $("#title").css({'font-size': '40px'});
-        $("#navigation").css({'font-size': '13px'});
+        $("#title").css({'font-size': '30px'});
+        $("#navigation").css({'font-size': '12px'});
     }
 
     // sets height of wrapper to fixed divs
