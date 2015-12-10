@@ -75,7 +75,7 @@ $(document).ready(function() {
         instances.forEach(function(inst){
             inst.update(scrollTop);
             });
-            }
+          }
         }
         
     var moveItItem = function(el){
@@ -85,6 +85,8 @@ $(document).ready(function() {
 
     moveItItem.prototype.update = function(scrollTop){
     var pos = scrollTop / this.speed;
+        //this.el.css('transform', 'translateY(' + -pos/2 + 'px)');
+        // TODO: fix performance issues
         this.el.css({'margin-top' : -(pos/2)+"px"});
     };
 
