@@ -13,9 +13,8 @@ $(document).ready(function() {
     if(mobilecheck()){
         // we're on mobile
         $(".wrapper").css({'width': '100%'});
-        $("#title").css({'font-size': '30px'});
+        $("#title").addClass('mobile');
         $("#navigation").css({'font-size': '12px'});
-        $(".smaller").css({'font-size': '16px'});
     }
 
     // sets height of wrapper to fixed divs
@@ -23,7 +22,7 @@ $(document).ready(function() {
 
     // activate mosaic
     $('.bar').mosaic({
-         animation   :   'slide'
+         animation : 'slide'
     });
 
     // navigation icon enlargements
@@ -61,9 +60,9 @@ $(document).ready(function() {
 
         var calc = 1 - (3*scrollTop/height);
         if(calc +0.4 < percent){
-            title.addClass('smaller');
+           title.addClass('smaller');    
         }else if(calc >= percent){
-            title.removeClass('smaller');
+           title.removeClass('smaller');
         }
 
         header.css({ 'opacity': calc });  
