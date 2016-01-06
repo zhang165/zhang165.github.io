@@ -61,6 +61,7 @@ $(document).ready(function() {
 
   // checks validity of the matrix
   var isValid = function(matrix, row, col, k){
+      if(!isNumeric(k)) return false;
       var rows = matrix.length;
         var cols = matrix[0].length;
         // check if any rows contain k
@@ -104,6 +105,11 @@ $(document).ready(function() {
       clear(matrix);
   });
 });
+
+var isNumeric = function (n) {
+  var num = parseFloat(n);
+  return !isNaN(num) && isFinite(n) && num > 0 && num < 10;
+}
 
 window.mobilecheck = function() {
   var check = false;
