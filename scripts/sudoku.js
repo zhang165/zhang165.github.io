@@ -109,8 +109,18 @@ $('.playfield span').hover(function(event){
     $(this).toggleClass('active');
 });
 
-// listens to key clicks
-$(document).keypress(function(e) {
+function throttle(func, interval) { // limits calls
+    var lastCall = 0;
+    return function() {
+        var now = Date.now();
+        if (lastCall + interval < now) {
+            lastCall = now;
+            return func.apply(this, arguments);
+        }
+    };
+}
+
+$(document).keypress(throttle(function(e) { // listens to key clicks
   if(e.which == 115){
     $("#solve").click();
   }
@@ -120,7 +130,6 @@ $(document).keypress(function(e) {
   var that = $('.active');
   var row = that.attr('id')[0];
   var col = that.attr('id')[1];
-
   var number = (e.which-48);
    if(isValid(matrix, row, col, number)){ // cannot start with an invalid matrix
       matrix[row][col]=undefined; // clear the current number
@@ -128,11 +137,14 @@ $(document).keypress(function(e) {
       matrix[row][col] = number;  
       that.append(number);
     }
-});
+},200));
 
   // solves the matrix
   $("#solve").on('click',function(event){
+      var now = Date.now();
       solve(matrix);
+      $("#timer").empty();
+      $("#timer").append((Date.now()-now)/1000 + "s");
       renderMatrix(matrix);
   });
   // clears matrix

@@ -21,6 +21,10 @@ h3{
 	margin-bottom: 8px;
 }
 
+h6 {
+	color: gray;
+	display:inline;
+}
 .centered{
 	text-align: center;
 }
