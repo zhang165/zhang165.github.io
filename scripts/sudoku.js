@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   // sudoku logic
   var matrix = [[,,,,,,,,],
@@ -83,6 +84,7 @@ $(document).ready(function() {
   // updates matrix on click
   $("#playfield span").on('click', function(){
     var that = $(this);
+
     var row = that.attr('id')[0];
     var col = that.attr('id')[1];
 
@@ -94,6 +96,25 @@ $(document).ready(function() {
       that.append(number);
     }
   });
+
+// hover functionality
+$('#playfield span').hover(function(event){
+    $(this).toggleClass('active');
+});
+
+$(document).keypress(function(e) {    
+  var that = $('.active');
+  var row = that.attr('id')[0];
+  var col = that.attr('id')[1];
+
+  var number = (e.which-48);
+   if(isValid(matrix, row, col, number)){ // cannot start with an invalid matrix
+      matrix[row][col]=undefined; // clear the current number
+      that.empty(); // empty the row
+      matrix[row][col] = number;  
+      that.append(number);
+    }
+});
 
   // solves the matrix
   $("#solve").on('click',function(event){
