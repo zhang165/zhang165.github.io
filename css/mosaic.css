@@ -42,8 +42,8 @@ a{ text-decoration:none; }
 	}
 			
 		.bar .mosaic-overlay {
-			bottom:-45%;
-			height:45%;
+			bottom:-35%;
+			height:35%;
 			background:url(../images/bg-black.png);
 		}
 		

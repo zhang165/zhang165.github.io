@@ -9,10 +9,16 @@
   <script type="text/javascript" src="bootstrap-3.3.6-dist/js/bootstrap.js"></script>
   <script type="text/javascript" src="scripts/index.js"></script>
 
+  <script type="text/javascript" src="scripts/sudoku.js"></script>
+
   <!-- imports css -->
   <link href="css/home.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cuprum:100,400|Voltaire:400">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link href="css/sudoku.css" type="text/css" rel="stylesheet">
 
   <!-- Add fancyBox -->
   <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
@@ -36,40 +42,6 @@
   <meta itemprop="url" content="http://www.michaelzhang.com/"/>
   <meta name="description" content="I am Michael Zhang. Hear me roar." />
 
-  
-        <style type="text/css">
-            #playfield{
-            width:490px;
-            height:490px;
-          }
-          #playfield div{
-            display:inline-block;
-            width:160px;
-            height:160px         
-          }
-          #playfield span{
-            color: black;
-            font-size:200%;
-            width:48px;
-            height:48px;
-            float:left; 
-            display:block;
-            border:1px solid white;
-            text-align:center;  
-            line-height:49px;
-            background-color:#e2e2e2;   
-
-          }
-          #playfield span:hover{
-            background-color:#0d2f5a;
-            color:white; 
-            -webkit-transition: all 0.3s ease;
-            -moz-transition: all 0.3s ease;
-            -o-transition: all 0.3s ease;
-            -ms-transition: all 0.3s ease;
-          }
-
-        </style>  
 </head>
 <body>
   <div class="wrapper">
@@ -89,11 +61,11 @@
     
     <div class="content">
         <div id="banner" data-scroll-speed="6">
-          <div id="banner" data-scroll-speed="6"><img src="images/6.jpg"></div>
+          <div id="banner" data-scroll-speed="6"><img src="images/sudoku.jpg"></div>
         </div>
 
         <div id="text" data-scroll-speed="1">
-          <h2 class='centered'> Sudoku Solver </h2>
+          <h2> Sudoku Solver </h2>
 
          <div id="playfield">
             <div>
@@ -203,116 +175,11 @@
             <span id="87"></span>
             <span id="88"></span>
             </div>
-
+            <button type="button" id="solve">Solve</button> <button type="button" id="clear">Clear</button>
           </div>
-          <button type="button" id="solve">Solve</button> <button type="button" id="clear">Clear</button>
         </div>
 
-<script>
-  // sudoku logic
-  var matrix = [[,,,,,,,,],
-                [,,,,,,,,],
-                [,,,,,,,,],
-                [,,,,,,,,],
-                [,,,,,,,,],
-                [,,,,,,,,],
-                [,,,,,,,,],
-                [,,,,,,,,],
-                [,,,,,,,,]];
 
-  // clearing the matrix
-  var clear = function(matrix){
-    for(var i=0; i<9; i++){ // clears matrix
-      matrix[i] = [];
-      for(var j=0; j<9; j++){
-        matrix[i][j]=undefined;
-      }
-    }
-    $.each($("#playfield span"), function( key, value ) {
-        $(this).empty();
-    });
-  }
-
-  // renders the matrix on the board
-  var renderMatrix = function(matrix){
-    for(var i=0; i<9; i++){ 
-      var row = matrix[i];
-      for(var j=0; j<9; j++){
-        var that = $("#"+i+j);
-        if(that.is(':empty')){
-          // that.append("<font color='green'>"+row[j]+"</font>");
-          that.append(row[j]);
-        }
-      }
-    }
-  }
-
-  // solves the board
-  var solve = function(matrix){
-      var rows = 9;
-      var cols = 9;
-        var nums = [1,2,3,4,5,6,7,8,9];
-        for(var i=0; i<rows; i++){
-            for(var j=0; j<cols; j++){
-                if(matrix[i][j]==undefined){ // try to fill this with a value
-                    for(var k=0; k<nums.length; k++){
-                        if(isValid(matrix, i, j, nums[k])){ // it is valid to fill this board with this value
-                            matrix[i][j]=nums[k];
-                            if(solve(matrix)) return true; // recursive call
-                            else matrix[i][j]=undefined;
-                        }
-                    }
-                    return false; // we cannot fill square with any value, return and backtrack;
-                }
-            }
-        }
-        return true; // got to the end, we're good
-  }
-
-  // checks validity of the matrix
-  var isValid = function(matrix, row, col, k){
-      var rows = matrix.length;
-        var cols = matrix[0].length;
-        // check if any rows contain k
-        for(var i=0; i<rows; i++){
-            if(matrix[i][col]==k) return false;
-        }
-        //check if any cols contain k
-        for(var j=0; j<cols; j++){
-            if(matrix[row][j]==k) return false;
-        }
-        // check 3x3        
-        for(var r = Math.floor(row / 3) * 3; r < Math.floor(row / 3) * 3 + 3; r++)
-            for(var c = Math.floor(col / 3) * 3; c < Math.floor(col / 3) * 3 + 3; c++)
-                if(matrix[r][c]==k) return false;
-
-        return true;
-  }
-
-  // updates matrix on click
-  $("#playfield span").on('click', function(){
-    var that = $(this);
-    var row = that.attr('id')[0];
-    var col = that.attr('id')[1];
-    matrix[row][col]=undefined; // clear the current number
-    that.empty(); 
-    var number = prompt("New number: ");
-    if(isValid(matrix, row, col, number)){ // cannot start with an invalid matrix
-      matrix[row][col] = number;  
-      that.append(number);
-    }
-  });
-
-  // solves the matrix
-  $("#solve").on('click',function(event){
-      solve(matrix);
-      renderMatrix(matrix);
-  });
-  // clears matrix
-  $("#clear").on('click',function(event){
-      clear(matrix);
-  });
-</script>
 
     <div id="footer">
       <i class="fa fa-rss fa-2x"></i><i class="fa fa-pied-piper fa-2x"></i><i class="fa fa-facebook-square fa-2x"></i> 
