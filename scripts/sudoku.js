@@ -38,7 +38,11 @@ $(document).ready(function() {
       for(var j=0; j<9; j++){
         var that = $("#"+i+j);
         if(that.is(':empty')){
-          that.append("<font>"+row[j]+"</font>");
+          if(row[j]==undefined){
+            that.append("<font>X</font>");  
+          }else{
+            that.append("<font>"+row[j]+"</font>");
+          }
           //that.append(row[j]);
         }
       }
@@ -51,8 +55,9 @@ $(document).ready(function() {
       var cols = 9;
         var nums = [1,2,3,4,5,6,7,8,9];
         for(var i=0; i<rows; i++){
+            var row = matrix[i];
             for(var j=0; j<cols; j++){
-                if(matrix[i][j]==undefined){ // try to fill this with a value
+                if(row[j]==undefined){ // try to fill this with a value
                     for(var k=0; k<nums.length; k++){
                         if(isValid(matrix, i, j, nums[k])){ // it is valid to fill this board with this value
                             matrix[i][j]=nums[k];
@@ -142,10 +147,13 @@ $(document).keypress(throttle(function(e) { // listens to key clicks
   // solves the matrix
   $("#solve").on('click',function(event){
       var now = Date.now();
-      solve(matrix);
       $("#timer").empty();
-      $("#timer").append((Date.now()-now)/1000 + "s");
-      renderMatrix(matrix);
+      if(solve(matrix)){
+        $("#timer").append((Date.now()-now)/1000 + "s");
+        renderMatrix(matrix);
+      }else{
+        $("#timer").append("<font>Unsolvable</font>");  
+      }
   });
   // clears matrix
   $("#clear").on('click',function(event){
