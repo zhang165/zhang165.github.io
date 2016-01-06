@@ -4,6 +4,7 @@ $(document).ready(function() {
         // we're on mobile
         $(".playfield div").css({'width':'110px', 'height':'110px'});
         $(".playfield span").css({'width':'34px', 'height':'34px','line-height':'34px','font-size':'140%'});
+        $("#sudokudesc").hide();
     }
 
   // sudoku logic
