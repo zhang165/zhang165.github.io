@@ -84,10 +84,11 @@ $(document).ready(function() {
     var that = $(this);
     var row = that.attr('id')[0];
     var col = that.attr('id')[1];
-    matrix[row][col]=undefined; // clear the current number
-    that.empty(); 
+
     var number = prompt("New number: ");
     if(isValid(matrix, row, col, number)){ // cannot start with an invalid matrix
+      matrix[row][col]=undefined; // clear the current number
+      that.empty(); // empty the row
       matrix[row][col] = number;  
       that.append(number);
     }
