@@ -15,6 +15,7 @@ $(document).ready(function() {
         $(".wrapper").css({'width': '100%'});
         $("#title").addClass('mobile');
         $("#navigation").css({'font-size': '12px'});
+        $("#text").css({'padding-bottom': '8%'});
     }
 
     // sets height of wrapper to fixed divs
