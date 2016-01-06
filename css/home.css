@@ -9,8 +9,17 @@ h2{
 	font: 1em/1.5em 'Voltaire';
 	font-size: 35px;
 	color: black;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
+h3{
+	font:normal 14px Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: black;
+	margin-top: 0px;
+	margin-bottom: 8px;
+}
 
 .centered{
 	text-align: center;

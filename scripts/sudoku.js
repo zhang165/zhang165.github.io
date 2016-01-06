@@ -19,7 +19,7 @@ $(document).ready(function() {
         matrix[i][j]=undefined;
       }
     }
-    $.each($("#playfield span"), function( key, value ) {
+    $.each($(".playfield span"), function( key, value ) {
         $(this).empty();
     });
   }
@@ -31,8 +31,8 @@ $(document).ready(function() {
       for(var j=0; j<9; j++){
         var that = $("#"+i+j);
         if(that.is(':empty')){
-          // that.append("<font color='green'>"+row[j]+"</font>");
-          that.append(row[j]);
+          that.append("<font>"+row[j]+"</font>");
+          //that.append(row[j]);
         }
       }
     }
@@ -82,7 +82,7 @@ $(document).ready(function() {
   }
 
   // updates matrix on click
-  $("#playfield span").on('click', function(){
+  $(".playfield span").on('click', function(){
     var that = $(this);
 
     var row = that.attr('id')[0];
@@ -98,11 +98,18 @@ $(document).ready(function() {
   });
 
 // hover functionality
-$('#playfield span').hover(function(event){
+$('.playfield span').hover(function(event){
     $(this).toggleClass('active');
 });
 
-$(document).keypress(function(e) {    
+// listens to key clicks
+$(document).keypress(function(e) {
+  if(e.which == 115){
+    $("#solve").click();
+  }
+  if(e.which == 99){
+    $("#clear").click(); 
+  }    
   var that = $('.active');
   var row = that.attr('id')[0];
   var col = that.attr('id')[1];
