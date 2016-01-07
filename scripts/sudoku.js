@@ -1,3 +1,4 @@
+'use strict';
 
 $(document).ready(function() {
   if(mobilecheck()){
@@ -17,13 +18,16 @@ $(document).ready(function() {
                 [,,,,,,,,],
                 [,,,,,,,,],
                 [,,,,,,,,]];
+  var nums = [1,2,3,4,5,6,7,8,9];    
+  var rows = 9;
+  var cols = 9;            
 
   // clearing the matrix
-  var clear = function(matrix){
+  var clear = function(){
     for(var i=0; i<9; i++){ // clears matrix
       matrix[i] = [];
       for(var j=0; j<9; j++){
-        matrix[i][j]=undefined;
+        matrix[i][j]=null;
       }
     }
     $.each($(".playfield span"), function( key, value ) {
@@ -32,51 +36,42 @@ $(document).ready(function() {
   }
 
   // renders the matrix on the board
-  var renderMatrix = function(matrix){
+  var renderMatrix = function(){
     for(var i=0; i<9; i++){ 
       var row = matrix[i];
       for(var j=0; j<9; j++){
         var that = $("#"+i+j);
         if(that.is(':empty')){
-          if(row[j]==undefined){
-            that.append("<font>X</font>");  
-          }else{
+          if(row[j]!=null){
             that.append("<font>"+row[j]+"</font>");
           }
-          //that.append(row[j]);
+            // that.append(row[j]);   
         }
       }
     }
   }
-
   // solves the board
-  var solve = function(matrix){
-      var rows = 9;
-      var cols = 9;
-        var nums = [1,2,3,4,5,6,7,8,9];
-        for(var i=0; i<rows; i++){
-            var row = matrix[i];
-            for(var j=0; j<cols; j++){
-                if(row[j]==undefined){ // try to fill this with a value
-                    for(var k=0; k<nums.length; k++){
-                        if(isValid(matrix, i, j, nums[k])){ // it is valid to fill this board with this value
-                            matrix[i][j]=nums[k];
-                            if(solve(matrix)) return true; // recursive call
-                            else matrix[i][j]=undefined;
+   var solve = function(){
+        for(var i = 0; i < rows; i++){
+            for(var j = 0; j < cols; j++){
+                if(matrix[i][j]==null){
+                    for(var k=0; k<nums.length; k++){ // try 1-9
+                        if(isValid(i, j, nums[k])){
+                            matrix[i][j] = nums[k]; 
+                            if(solve(matrix)) return true; //If it's the solution return true
+                            else matrix[i][j] = null; 
                         }
                     }
-                    return false; // we cannot fill square with any value, return and backtrack;
+                    return false;
                 }
             }
         }
-        return true; // got to the end, we're good
-  }
+        return true;
+    }
 
   // checks validity of the matrix
-  var isValid = function(matrix, row, col, k){
+  var isValid = function(row, col, k){
       if(!isNumeric(k)) return false;
-      var rows = matrix.length;
-        var cols = matrix[0].length;
         // check if any rows contain k
         for(var i=0; i<rows; i++){
             if(matrix[i][col]==k) return false;
@@ -86,12 +81,32 @@ $(document).ready(function() {
             if(matrix[row][j]==k) return false;
         }
         // check 3x3        
-        for(var r = Math.floor(row / 3) * 3; r < Math.floor(row / 3) * 3 + 3; r++)
-            for(var c = Math.floor(col / 3) * 3; c < Math.floor(col / 3) * 3 + 3; c++)
-                if(matrix[r][c]==k) return false;
-
+        var xrow = Math.floor(row/3)*3;
+        var xcol = Math.floor(col/3)*3;
+        for(var i=xrow; i<xrow+3; i++)
+            for(var j=xcol; j<xcol+3; j++)
+                if(matrix[i][j]==k) return false;
         return true;
   }
+
+$(document).keypress(throttle(function(e) { // listens to key clicks
+  if(e.which == 115){
+    $("#solve").click();
+  }
+  if(e.which == 99){
+    $("#clear").click(); 
+  }    
+  var that = $('.active');
+  var row = that.attr('id')[0];
+  var col = that.attr('id')[1];
+  var number = (e.which-48);
+   if(isValid(row, col, number)){ // cannot start with an invalid matrix
+      matrix[row][col]=null; // clear the current number
+      that.empty(); // empty the row
+      matrix[row][col] = number;  
+      that.append(number);
+    }
+},200));
 
   // updates matrix on click
   $(".playfield span").on('click', function(){
@@ -101,8 +116,8 @@ $(document).ready(function() {
     var col = that.attr('id')[1];
 
     var number = prompt("New number: ");
-    if(isValid(matrix, row, col, number)){ // cannot start with an invalid matrix
-      matrix[row][col]=undefined; // clear the current number
+    if(isValid(row, col, number)){ // cannot start with an invalid matrix
+      matrix[row][col]=null; // clear the current number
       that.empty(); // empty the row
       matrix[row][col] = number;  
       that.append(number);
@@ -125,43 +140,26 @@ function throttle(func, interval) { // limits calls
     };
 }
 
-$(document).keypress(throttle(function(e) { // listens to key clicks
-  if(e.which == 115){
-    $("#solve").click();
-  }
-  if(e.which == 99){
-    $("#clear").click(); 
-  }    
-  var that = $('.active');
-  var row = that.attr('id')[0];
-  var col = that.attr('id')[1];
-  var number = (e.which-48);
-   if(isValid(matrix, row, col, number)){ // cannot start with an invalid matrix
-      matrix[row][col]=undefined; // clear the current number
-      that.empty(); // empty the row
-      matrix[row][col] = number;  
-      that.append(number);
-    }
-},200));
-
   // solves the matrix
   $("#solve").on('click',function(event){
       var now = Date.now();
       $("#timer").empty();
-      if(solve(matrix)){
+      console.log(solve());
+      if(solve()){
         $("#timer").append((Date.now()-now)/1000 + "s");
-        renderMatrix(matrix);
+        renderMatrix();
       }else{
         $("#timer").append("<font>Unsolvable</font>");  
       }
   });
+
   // clears matrix
   $("#clear").on('click',function(event){
-      clear(matrix);
+      clear();
   });
 });
 
-var isNumeric = function (n) {
+var isNumeric = function (n) { // checks to insure our number is between [1,9]
   var num = parseFloat(n);
   return !isNaN(num) && isFinite(n) && num > 0 && num < 10;
 }
