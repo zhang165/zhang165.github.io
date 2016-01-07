@@ -108,7 +108,7 @@ var updateHeight = function(){
     // });
 
     // Set the container height
-    $(".wrapper").height(1850);
+    $(".wrapper").height(1750);
 }
 
 window.mobilecheck = function() {
