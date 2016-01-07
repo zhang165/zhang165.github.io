@@ -6,8 +6,8 @@ body {
 }
 
 h2{
-	font: 1em/1.5em 'Voltaire';
-	font-size: 35px;
+	font-family: 'Michroma', sans-serif;
+	font-size: 22px;
 	color: black;
 	margin-top: 0px;
 	margin-bottom: 0px;
@@ -25,6 +25,7 @@ h6 {
 	color: gray;
 	display:inline;
 }
+
 .centered{
 	text-align: center;
 }
@@ -51,10 +52,10 @@ h6 {
 #title{
 	text-align: center;
 	position: relative;
-	font: 1em/1.5em 'Cuprum';
+	font-family: 'Michroma', sans-serif;
 	color: black;
 	background-color: #FFFFFF;
-	font-size: 50px;
+	font-size: 35px;
 	padding-top: 2%;
 	padding-bottom: 2%;
     border-bottom:1px solid #e7e7e7;
@@ -67,7 +68,7 @@ h6 {
 }
 
 #title.mobile{
-	font-size: 30px;
+	font-size: 20px;
 }
 
 .content{
@@ -96,24 +97,24 @@ h6 {
 	}
 
 #title.smaller{
-	font-size: 25px;
+	font-size: 18px;
 	height: 8%;
 	padding-top: 0.8%;
 	padding-bottom: 0.8%;
 }
 
 #title.mobile.smaller{
-	font-size: 18px;
+	font-size: 10px;
 	height: 6%;
-	padding-top: 0.4%;
-	padding-bottom: 0.4%;
+	padding-top: 0.8%;
+	padding-bottom: 0.8%;
 }
 
 #navigation{
 	text-align: center;
 	position: relative;
 	background: #FFFFFF;
-	font: 1em/1.5em 'Voltaire';
+	font-family: 'Open Sans Condensed', sans-serif;
 	background-color: #FFFFFF;
 	width: 100%;
 	font-size: 16px;
