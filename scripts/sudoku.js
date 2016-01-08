@@ -144,7 +144,6 @@ function throttle(func, interval) { // limits calls
   $("#solve").on('click',function(event){
       var now = Date.now();
       $("#timer").empty();
-      console.log(solve());
       if(solve()){
         $("#timer").append((Date.now()-now)/1000 + "s");
         renderMatrix();
