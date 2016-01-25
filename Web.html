@@ -1,7 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<!-- imports js -->
+	<script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery-ui.js"></script>
+	<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="scripts/web.js"></script>
+
+	<!-- imports css -->
+	<link href="css/home.css" type="text/css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cuprum:100,400|Voltaire:400|Michroma|Open+Sans+Condensed:300">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Unity Web Player | Drive</title>
 		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
 		<script type="text/javascript">
@@ -116,7 +128,25 @@
 		-->
 		</style>
 	</head>
+
+
 	<body>
+	<div class="wrapper">
+		<div class="fixed">
+			<div id="title">
+				Michael Zhang
+			</div>
+			<div id="navigation">
+				<ul>
+					<li><a href="index.html"><i class="fa fa-folder-open-o"></i>Portfolio</a></li>
+					<li><a class="fancybox" rel="resume" href="images/Resume1page.pdf"><i class="fa fa-file-text-o"></i>Resume</a></li>
+					<li><a href="about.html"><i class="fa fa-commenting-o"></i>About</a></li>
+					<li><a href="contact.html"><i class="fa fa-envelope-o"></i>Contact</a></li>
+				</ul>
+			</div>
+		
+		<div class="content">
+
 		<p class="header"><span>Unity Web Player | </span>Drive</p>
 		<div class="content">
 			<div id="unityPlayer">
@@ -127,6 +157,16 @@
 				</div>
 			</div>
 		</div>
+		<p class="footer">&laquo; Use W A S D to drive the car &raquo;</p>
 		<p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</p>
-	</body>
+
+				</div>
+
+				</div>
+		
+		</div>
+	</div>
+</body>
+		
+
 </html>
