@@ -81,8 +81,8 @@ $(document).ready(function() {
             if(matrix[row][j]==k) return false;
         }
         // check 3x3        
-        var xrow = Math.floor(row/3)*3;
-        var xcol = Math.floor(col/3)*3;
+        var xrow = parseInt(row/3)*3;
+        var xcol = parseInt(col/3)*3;
         for(var i=xrow; i<xrow+3; i++)
             for(var j=xcol; j<xcol+3; j++)
                 if(matrix[i][j]==k) return false;
