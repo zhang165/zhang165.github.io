@@ -13,6 +13,14 @@ h2{
 	margin-bottom: 0px;
 }
 
+h2.mobile{
+	font-family: 'Michroma', sans-serif;
+	font-size: 14px;
+	color: black;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
 h3{
 	font:normal 14px Arial, Helvetica, sans-serif;
 	font-size: 14px;
@@ -74,10 +82,11 @@ h6 {
 .content{
 	display: none;
 	width: 100%;
-	overflow: hidden;   
+	overflow: hidden; 
 }
 
 	div #projects {
+		margin-top: 16px;
 		text-align: center;
 		height: auto;
 	}

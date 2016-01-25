@@ -14,6 +14,7 @@ $(document).ready(function() {
         // we're on mobile
         $(".wrapper").css({'width': '100%'});
         $("#title").addClass('mobile');
+        $("h2").addClass('mobile');
         $("#navigation").css({'font-size': '12px'});
         $("#text").css({'padding-bottom': '6%'});
     }
