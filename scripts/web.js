@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     // sets height of wrapper to fixed divs
     updateHeight();
-
+     
     // activate mosaic
     // $('.bar').mosaic({
     //      animation : 'slide'
@@ -60,11 +60,11 @@ $(document).ready(function() {
         var height = $(document).height();
 
         var calc = 1 - (3*scrollTop/height);
-        if(calc +0.4 < percent){
-           title.addClass('smaller');    
-        }else if(calc >= percent){
-           title.removeClass('smaller');
-        }
+        // if(calc +0.4 < percent){
+        //    title.addClass('smaller');    
+        // }else if(calc >= percent){
+        //    title.removeClass('smaller');
+        // }
 
         header.css({ 'opacity': calc });  
 
