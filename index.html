@@ -1,34 +1,140 @@
-<!doctype html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Drive</title>
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
-    <script src="TemplateData/UnityProgress.js"></script>
-  </head>
-  <body class="template">
-    <p class="header"><span>Unity WebGL Player | </span>Drive</p>
-    <div class="template-wrap clear">
-      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
-      <br>
-      <div class="logo"></div>
-      <div class="fullscreen"><img src="TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
-      <div class="title">Drive</div>
-    </div>
-    <p class="footer">&laquo; created with <a href="http://unity3d.com/" title="Go to unity3d.com">Unity</a> &raquo;</p>
-    <script type='text/javascript'>
-  var Module = {
-    TOTAL_MEMORY: 268435456,
-    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
-    compatibilitycheck: null,
-    dataUrl: "Release/WebGL.data",
-    codeUrl: "Release/WebGL.js",
-    memUrl: "Release/WebGL.mem",
-  };
-</script>
-<script src="Release/UnityLoader.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- imports js -->
+  <script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery-ui.js"></script>
+  <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="scripts/index.js"></script>
 
-  </body>
+  <!-- imports css -->
+  <link href="css/home.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cuprum:100,400|Voltaire:400|Michroma|Open+Sans+Condensed:300">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- Add fancyBox -->
+  <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+  <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  <!-- Add Mosiac -->
+  <script type="text/javascript" src="scripts/mosaic.1.0.1.js"></script>
+  <link rel="stylesheet" href="css/mosaic.css" type="text/css" media="screen" />
+
+  <base href="">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
+  <title>Michael Zhang</title>
+  <link rel="shortcut icon" type="image/x-icon" href="images/Hydrattz-Multipurpose-Alphabet-Letter-Z-gold.ico"/>
+  <meta property="og:site_name" content="Michael Zhang"/>
+  <meta property="og:title" content="WORK"/>
+  <meta property="og:url" content="http://www.michaelzhang.com/"/>
+  <meta property="og:type" content="website"/>
+  <meta itemprop="name" content="WORK"/>
+  <meta itemprop="url" content="http://www.michaelzhang.com/"/>
+  <meta name="description" content="I am Michael Zhang. Hear me roar." />
+
+
+</head>
+<body>
+  <div class="wrapper">
+    <div class="fixed">
+      <div id="title">
+        Michael Zhang
+      </div>
+      <div id="navigation">
+        <ul>
+          <li><a href="index.html"><i class="fa fa-folder-open-o"></i>Portfolio</a></li>
+          <li><a class="fancybox" rel="resume" href="images/Resume1page.pdf"><i class="fa fa-file-text-o"></i>Resume</a></li>
+          <li><a href="about.html"><i class="fa fa-commenting-o"></i>About</a></li>
+          <li><a href="contact.html"><i class="fa fa-envelope-o"></i>Contact</a></li>
+        </ul>
+      </div>
+    
+    <div class="content">
+        <div id="banner" data-scroll-speed="6"><img src="images/6.jpg"></div>
+        <div id="text" data-scroll-speed="1">
+        <h2 align="center">Projects</h2>
+      
+        <div id="projects">
+
+        <div class="mosaic-block bar">
+          <a class="fancybox" rel="group" href="Web.html" title="Drive">
+          <div class="mosaic-overlay">
+            <div class="details">
+            <h4>Drive</h4>
+            <p>Self driving car navigation, built with Unity</p>
+            </div>
+          </div>
+          <div class="mosaic-backdrop"><img src="images/thumbs/drive3.jpg" /></div>
+        </a>
+        </div>
+
+        <div class="mosaic-block bar">
+          <a class="fancybox" rel="group" href="sudoku.html" title="Sudoku Solver">
+          <div class="mosaic-overlay">
+            <div class="details">
+            <h4>Sudoku Solver</h4>
+            <p>A web-based soduku solver written in Javascript</p>
+            </div>
+          </div>
+          <div class="mosaic-backdrop"><img src="images/thumbs/sudoku.jpg" /></div>
+        </a>
+        </div>
+
+        <div class="mosaic-block bar">
+          <a class="fancybox" rel="group" href="http://paranoidbikers.herokuapp.com" target="_blank" title="Paranoid Bikers">
+          <div class="mosaic-overlay">
+            <div class="details">
+            <h4>Paranoid Bikers</h4>
+            <p>Motorcycle parking application built with Django</p>
+            </div>
+          </div>
+          <div class="mosaic-backdrop"><img src="images/thumbs/paranoidbikers.jpg" /></div>
+        </a>
+        </div>
+
+        <div class="mosaic-block bar">
+          <a class="fancybox" rel="group" href="https://github.com/zhang165/Novarica-webcrawler" title="Novarica Webcrawler">
+          <div class="mosaic-overlay">
+            <div class="details">
+            <h4>Novarica-webcrawler</h4>
+            <p>A webcrawler for insurance datasets written in Java</p>
+            </div>
+          </div>
+          <div class="mosaic-backdrop"><img src="images/thumbs/webcrawler.jpg" /></div>
+        </a>
+        </div>
+
+      
+
+        <div class="mosaic-block bar">
+          <a class="fancybox" rel="group" href="Web2.html" title="League of Legends Card Game">
+          <div class="mosaic-overlay">
+            <div class="details">
+            <h4>Card Game</h4>
+            <p>A card game based on Hearthstone and League of Legends, built with Unity</p>
+            </div>
+          </div>
+          <div class="mosaic-backdrop"><img src="images/thumbs/cards.jpg" /></div>
+        </a>
+        </div>
+
+      
+        </div>
+
+        </div>
+    <div id="footer">
+      <a href="https://github.com/zhang165" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+      <a href="https://ca.linkedin.com/in/michael-zhang-14640aa3" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+      <i class="fa fa-facebook-square fa-2x"></i> 
+      <i class="fa fa-pied-piper fa-2x"></i>
+    </div>
+    </div>
+  </div>
+</body>
+
 </html>
+
+
